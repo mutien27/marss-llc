@@ -69,6 +69,8 @@ def compute_cache_power(num_cycle,
     elif proc_freq == '4GHz': time = num_cycle * 2.5E-10
 
     # calculate energy
+    # TODO: writing back a cache line is also like a read operation,
+    # but we are ignoring this portion at the moment
     l1_d_read_E = (l1_d_num_read*l1_d_read_energy) * 1E-6 # mJ
     l1_d_write_E = (l1_d_num_write*l1_d_write_energy + l1_d_num_insert*l1_d_write_energy) * 1E-6 # mJ
     l1_d_dynamic_E = l1_d_read_E + l1_d_write_E # mJ
